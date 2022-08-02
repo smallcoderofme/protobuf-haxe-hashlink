@@ -27,11 +27,6 @@ typedef HelloResult= {
     var id: Int;
 }
 
-
-
-private typedef HLEncodeChar = hl.Abstract<"encode_char">;
-
-
 @:hlNative("protobuf_hl")
 private class ProtoBuf {
     public static function helloworldEn(str: String, id: Int): hl.Bytes {
@@ -53,13 +48,9 @@ class ProtoHL {
 
     public static function decode() {
         var r:{str:Null<hl.Bytes>, id:Int} = ProtoBuf.helloworldDe(helloworldEncode);
-		//var ret: HelloResult = {str : r.str, id : r.id};
         trace("decode:", r);
         trace("id:", r.id);
-        trace("str: utf",@:privateAccess String.fromUTF8(r.str));
-       
         trace("str:",r.str);
-        trace("str: UC",@:privateAccess String.fromUCS2(r.str));
     }
 }
 #end
