@@ -1,9 +1,8 @@
 #include "HelloWorld.pb.h"
-#include <iostream>
+
 #define HL_NAME(n) protobuf_hl_##n
 
 #include <hl.h>
-//#include "Example1.pb.h"
 
 
 const int MAX_LENGTH = 1024;
