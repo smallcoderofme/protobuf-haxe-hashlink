@@ -3,7 +3,7 @@ import protobuf.ProtoHL;
 
 import haxe.io.Bytes;
 
-class Main extends Start {
+class Main extends hxd.App {
 
 	
 	static function main() {
