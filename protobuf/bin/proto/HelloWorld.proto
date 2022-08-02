@@ -1,0 +1,7 @@
+syntax="proto3";
+package lm;
+message HelloWorld
+{
+   int32     id = 1;  // ID
+   bytes     str = 2;  // str
+}
