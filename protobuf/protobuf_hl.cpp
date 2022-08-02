@@ -36,12 +36,7 @@ HL_PRIM vdynamic* HL_NAME(helloworld_de)(vbyte* bytes)
     vdynamic* obj = (vdynamic*)hl_alloc_dynobj();
     lm::HelloWorld helloworld;
 
-    bool b = helloworld.ParseFromArray(bytes, MAX_LENGTH);
-    if (!b)
-    {
-        hl_dyn_setp(obj, hl_hash_utf8("str"), &hlt_bytes, "error");
-        hl_dyn_seti(obj, hl_hash_utf8("id"), &hlt_i32, -1);
-    }
+    helloworld.ParseFromArray(bytes, MAX_LENGTH);
 
     uchar* rets = hl_to_utf16((char*)helloworld.str().data());
 
