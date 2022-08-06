@@ -1,6 +1,7 @@
 -cp src
 -lib heaps
 -lib hlsdl
+-lib colyseus-websocket
 -hl main.hl
 -main Main
 -debug

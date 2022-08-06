@@ -1,8 +1,9 @@
 #include "HelloWorld.pb.h"
-
+#include <iostream>
 #define HL_NAME(n) protobuf_hl_##n
 
 #include <hl.h>
+//#include "Example1.pb.h"
 
 
 const int MAX_LENGTH = 1024;
@@ -36,7 +37,6 @@ HL_PRIM vdynamic* HL_NAME(helloworld_de)(vbyte* bytes)
     lm::HelloWorld helloworld;
 
     helloworld.ParseFromArray(bytes, MAX_LENGTH);
-
     uchar* rets = hl_to_utf16((char*)helloworld.str().data());
 
     hl_buffer* bf = hl_alloc_buffer();

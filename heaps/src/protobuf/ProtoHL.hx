@@ -27,6 +27,7 @@ typedef HelloResult= {
     var id: Int;
 }
 
+
 @:hlNative("protobuf_hl")
 private class ProtoBuf {
     public static function helloworldEn(str: String, id: Int): hl.Bytes {
@@ -39,18 +40,26 @@ private class ProtoBuf {
 
 class ProtoHL {
 	static var encode_char:Dyn<{str:hl.Bytes, id:Int}>;
-    static var helloworldEncode: hl.Bytes;
+    public var helloworldEncode: hl.Bytes;
     public function new(name : HString, id : Int) {
         trace("name:", name, "id:", id);
 		helloworldEncode = ProtoBuf.helloworldEn(name, id);
         trace("encode:", helloworldEncode);
 	}
 
-    public static function decode() {
+    public function decode() {
         var r:{str:Null<hl.Bytes>, id:Int} = ProtoBuf.helloworldDe(helloworldEncode);
         trace("decode:", r);
-        trace("id:", r.id);
-        trace("str:",r.str);
+        trace(r.str);
+        trace(r.id);
+    }
+    public function decodeData(data: hl.Bytes) {
+        var r:{str:Null<hl.Bytes>, id:Int} = ProtoBuf.helloworldDe(data);
+        // var retUCSStr: String = @:privateAccess String.fromUCS2(r.str);
+        // trace(retUCSStr);
+        trace("decode data:", r);
+        trace(r.str);
+        trace(r.id);
     }
 }
 #end
